@@ -1,5 +1,6 @@
 # CODINGHUB_WikiPage by JYS
 
+public-jys-wikipage-k7rqb0eiq-ys739.vercel.app
 코딩허브 과제 전형 - 강의 정보를 제공하는 위키 페이지
 
 ### 🕰️ 개발 기간

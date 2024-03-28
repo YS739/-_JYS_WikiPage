@@ -3,7 +3,6 @@
  * @param onClick - 위키 추가 및 수정 기능이 담긴 EventHandler
  */
 
-import { useState } from "react";
 import GlobalButton from "./GlobalButton";
 
 interface GlobalInputProps {
@@ -25,15 +24,6 @@ const GlobalInput = ({
   contentValue,
   text,
 }: GlobalInputProps) => {
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const categories = ["프로그래밍", "클라우드", "데이터분석", "인공지능"];
-
-  const categoryClickHandler = (category: string) => {
-    setSelectedCategory(category);
-    setIsDropDownOpen(false);
-  };
-
   return (
     <>
       <div className="grid grid-cols-[4fr,auto] mb-6">
@@ -42,44 +32,6 @@ const GlobalInput = ({
           X
         </button>
       </div>
-      <div className="mb-4">
-        <div className="block mb-2">분류</div>
-        <div className="relative inline-block text-left">
-          <div>
-            <button
-              type="button"
-              className="inline-flex justify-center w-full rounded-md border-2 border-secondary shadow-sm px-4 py-2 bg-white text-sm text-primary hover:bg-secondary focus:outline-none"
-              onClick={() => setIsDropDownOpen(!isDropDownOpen)}
-              aria-expanded={isDropDownOpen}
-            >
-              {selectedCategory || `------ \u2193`}
-            </button>
-          </div>
-
-          {isDropDownOpen && (
-            <div
-              className="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white focus:outline-none"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="options-menu"
-            >
-              <div className="py-1" role="none">
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    className="block px-4 py-2 text-sm text-primary hover:bg-secondary hover:bg-opacity-20 w-full text-left"
-                    onClick={() => categoryClickHandler(category)}
-                    role="menuitem"
-                  >
-                    {category}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
       <div className="mb-4">
         <label htmlFor="title" className="block mb-2">
           제목
